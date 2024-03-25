@@ -102,7 +102,7 @@ console.log(cards); // [4, 5, 6]
 
 ## `gilbreathShuffle(cards, split)`
 
-https://github.com/kakegurui-club/shuffle/assets/31079629/66f2e100-26d3-4355-8749-a68c5a09c322
+<video src="https://github.com/kakegurui-club/shuffle/assets/31079629/66f2e100-26d3-4355-8749-a68c5a09c322"></video>
 
 Performs a [Gilbreath Shuffle](https://en.wikipedia.org/wiki/Gilbreath_shuffle) on `cards` by first splitting the deck into a separate pile of `split` cards and then riffle shuffling them together.
 
