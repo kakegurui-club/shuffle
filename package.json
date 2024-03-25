@@ -1,6 +1,6 @@
 {
   "name": "@kakegurui/shuffle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shuffle utilities for Kakegurui Games",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
