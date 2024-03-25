@@ -1,5 +1,5 @@
 # `@kakegurui/shuffle`
-This module implements shuffle utilities assisting in implementing card-based games as seen on the Anime series Kakegurui.
+This module implements shuffle utilities assisting in implementing card-based games as seen in the Anime series Kakegurui.
 
 ## Install
 
@@ -11,11 +11,11 @@ $ yarn add @kakegurui/shuffle
 $ pnpm install @kakegurui/shuffle
 ```
 
-Supports both ESM and CJS and is written in TypeScript.
+It supports both ESM and CJS and is written in TypeScript.
 
 ## Usage
 
-Import the function you need, currently there is:
+Import the function you need, currently, there is:
 
 - `shuffle` Basic shuffle using the [Fisher–Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) algorithm. This modifies the array in place.
 - `riffleShuffle` Riffle shuffle between two decks.
@@ -23,7 +23,7 @@ Import the function you need, currently there is:
 - `cutDeck` Shuffle a deck by 'cutting'
 - `randomNumber` Get a random number within a given range.
 - `riffleShuffle` Riffle shuffle two decks.
-- `deal` Deals a number of cards onto a separate pile.
+- `deal` Deals several cards onto a separate pile.
 
 ```ts
 // ESM/TypeScript
@@ -34,16 +34,16 @@ const { shuffle } = require('@kakegurui/shuffle');
 
 ### `shuffle(array)`
 
-Shuffles an array in-place using the Fisher-Yates/Knuth Shuffle algorithm.
+Shuffles an array in place using the Fisher-Yates/Knuth Shuffle algorithm.
 
 ```ts
 const array = [1, 2, 3, 4, 5];
 const shuffled = shuffle(array);
 
-// Array is shuffled in-place.
+// Array is shuffled in place.
 console.log(array === shuffled); // true
 
-// If you would like to preserve the original array, pass a copy.
+// If you want to preserve the original array, pass a copy.
 const array2 = [1, 2, 3, 4, 5];
 const shuffled2 = shuffle(array2.slice());
 
@@ -74,45 +74,47 @@ const shuffled = riffleShuffle(deck1, deck2);
 
 ### `cutDeck(cards, cuts)`
 
-Shuffles a deck of `cards` by randomly cutting the deck `cuts` times. Array is modified in-place.
+Shuffles a deck of `cards` by randomly cutting the deck `cuts` times. The array is modified in place.
 
 ```ts
 const deck = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const shuffled = cutDeck(deck, 10);
 
-// Array is modified in-place.
+// Array is modified in place.
 console.log(deck === shuffled);
 
-// You can cut the deck a random number of times using randomNumber.
+// You can cut the deck several times using randomNumber.
 const shuffled = cutDeck(deck, randomNumber(1, 10));
 ```
 
 ### `deal(cards, numCards)`
 
-Deals `numCards` from the top of the `cards`, top here meaning the beginning of the array, it deals it one by one therefore the new pile will have the cards in reverse order.
+Deals `numCards` from the top of the `cards`, top here meaning the beginning of the array, it deals it one by one, therefore, the new pile will have the cards in reverse order.
 
 ```ts
 const cards = [1, 2, 3, 4, 5, 6];
 const pile = deal(cards, 3);
 
 console.log(pile); // [3, 2, 1]
-// Array is modified in-place.
+// Array is modified in place.
 console.log(cards); // [4, 5, 6]
 ```
 
 ## `gilbreathShuffle(cards, split)`
 
-Performs a [Gilbreath Shuffle](https://en.wikipedia.org/wiki/Gilbreath_shuffle) on `cards` by first splitting the deck onto a separate piles of `split` cards and then riffle shuffling them together.
+https://github.com/kakegurui-club/shuffle/assets/31079629/66f2e100-26d3-4355-8749-a68c5a09c322
+
+Performs a [Gilbreath Shuffle](https://en.wikipedia.org/wiki/Gilbreath_shuffle) on `cards` by first splitting the deck into a separate pile of `split` cards and then riffle shuffling them together.
 
 ```ts
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const shuffled = gilbreathShuffle(cards, 4);
 
-// Array is modified in-place.
+// Array is modified in place.
 console.log(cards === shuffled);
 ```
 
-For the true Kakegurui experience we recommend cutting the deck using `cutDeck` a few times as well before doing a `gilbreathShuffle`
+For the true Kakegurui experience, we recommend cutting the deck using `cutDeck` a few times as well before doing a `gilbreathShuffle`
 
 ## License
 [MIT](LICENSE)
